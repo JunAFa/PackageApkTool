@@ -25,8 +25,13 @@ def startBuildApkTask():
 
     """
 
+    check_java_cmd = u"java -version"
+    stdin, stdout = os.popen4(check_java_cmd.encode("GB2312"))
+    data = stdout.read()
+    print ("data = " + data);
+
     # 基准包任务
-    task = BuildApkTask('180', 'TESTGame', '1', '1.0.0', 'GameSDKFrame.apk', 'lexiang' '1', '1.0.0')
+    task = BuildApkTask('180', 'TESTGame', '1', '1.0.0', 'GameSDKFrame.apk', 'lexiang', '1', '1.0.0')
     # 开始打包任务
     task.buildApk()
 
